@@ -146,7 +146,7 @@ export const Hero: React.FC = () => {
                       {PERSONAL_INFO.name}
                     </p>
                     <p className="text-[11px] font-mono text-stone-500 dark:text-stone-400">
-                      B.Tech IT • Zoho CRM Alum
+                      B.Tech Information Technology • Zoho CRM Intern
                     </p>
                   </div>
                   <div className="flex items-center space-x-1.5 text-[11px] font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-1 rounded-md border border-emerald-200/60 dark:border-emerald-800/60">

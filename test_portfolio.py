@@ -130,3 +130,4 @@ print(f"Console Errors ({len(console_errors)}):", console_errors)
 print(f"Failed Requests ({len(failed_requests)}):", failed_requests)
 if len(console_errors) == 0 and len(failed_requests) == 0:
     print("ALL PLAYWRIGHT TESTS PASSED WITH 0 ERRORS!")
+

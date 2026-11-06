@@ -53,9 +53,6 @@ export const Education: React.FC = () => {
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{EDUCATION.period}</span>
                   </div>
-                  <div className="mt-2 inline-flex items-center space-x-1 px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 font-mono font-bold text-xs">
-                    <span>CGPA: {EDUCATION.cgpa} / {EDUCATION.scoreScale}</span>
-                  </div>
                 </div>
               </div>
 

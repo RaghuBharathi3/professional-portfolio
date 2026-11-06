@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { Linkedin, Github, Copy, Check, Send, ArrowUpRight } from 'lucide-react';
+import { Linkedin, Github, Copy, Check, ArrowUpRight, Mail, Phone, MapPin, FileText } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  
-  // Interactive message composer
-  const [senderName, setSenderName] = useState('');
-  const [senderOrg, setSenderOrg] = useState('');
-  const [subject, setSubject] = useState('Software Engineering Opportunity');
-  const [message, setMessage] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -22,13 +16,6 @@ export const Contact: React.FC = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.phone);
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
-  };
-
-  const handleSendMail = (e: React.FormEvent) => {
-    e.preventDefault();
-    const bodyContent = `Hi Raghu,\n\n${message}\n\nBest regards,\n${senderName || 'Recruiter'}\n${senderOrg ? `Company: ${senderOrg}` : ''}`;
-    const mailtoUrl = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyContent)}`;
-    window.location.href = mailtoUrl;
   };
 
   return (
@@ -44,29 +31,31 @@ export const Contact: React.FC = () => {
             Get in Touch
           </h2>
           <p className="mt-2 text-stone-600 dark:text-stone-400 text-sm sm:text-base">
-            Actively available for software engineering roles, cloud security teams, and technical opportunities.
+            Available for software engineering roles, cloud security teams, and technical interviews.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-left items-start">
+        {/* Balanced 4-Card Contact Grid (2x2 on desktop/tablet, 1-col on mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
           
-          {/* Left Column: Direct Contact Cards */}
-          <div className="lg:col-span-5 space-y-4">
-            
-            {/* Email Card */}
-            <div className="p-5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs space-y-2">
+          {/* Email Card */}
+          <div className="flex flex-col justify-between p-6 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs hover:border-stone-300 dark:hover:border-stone-700 transition-all space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-wider text-stone-500">
-                  Direct Email
-                </span>
+                <div className="flex items-center space-x-2 text-brand-700 dark:text-brand-400">
+                  <Mail className="w-4 h-4" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-semibold">
+                    Direct Email
+                  </span>
+                </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="text-xs font-mono text-stone-500 hover:text-stone-900 dark:hover:text-stone-200 flex items-center space-x-1"
+                  className="px-2.5 py-1 rounded text-xs font-mono bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors flex items-center space-x-1"
                 >
                   {copiedEmail ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-emerald-600" />
-                      <span className="text-emerald-600">Copied</span>
+                      <span className="text-emerald-600 font-semibold">Copied</span>
                     </>
                   ) : (
                     <>
@@ -79,29 +68,34 @@ export const Contact: React.FC = () => {
 
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="text-base font-semibold font-mono text-stone-900 dark:text-stone-100 hover:text-brand-700 dark:hover:text-brand-400 transition-colors block truncate"
+                className="text-base sm:text-lg font-bold font-mono text-stone-900 dark:text-stone-100 hover:text-brand-700 dark:hover:text-brand-400 transition-colors block truncate pt-1"
               >
                 {PERSONAL_INFO.email}
               </a>
-              <p className="text-xs text-stone-500">
-                Primary contact for recruiters and engineering hiring managers.
-              </p>
             </div>
+            <p className="text-xs text-stone-500 dark:text-stone-400 pt-2 border-t border-stone-100 dark:border-stone-800">
+              Primary contact for technical recruiters and hiring managers. Direct inbox monitored daily.
+            </p>
+          </div>
 
-            {/* Phone Card */}
-            <div className="p-5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs space-y-2">
+          {/* Phone & WhatsApp Card */}
+          <div className="flex flex-col justify-between p-6 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs hover:border-stone-300 dark:hover:border-stone-700 transition-all space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-wider text-stone-500">
-                  Mobile / WhatsApp
-                </span>
+                <div className="flex items-center space-x-2 text-brand-700 dark:text-brand-400">
+                  <Phone className="w-4 h-4" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-semibold">
+                    Mobile / WhatsApp
+                  </span>
+                </div>
                 <button
                   onClick={handleCopyPhone}
-                  className="text-xs font-mono text-stone-500 hover:text-stone-900 dark:hover:text-stone-200 flex items-center space-x-1"
+                  className="px-2.5 py-1 rounded text-xs font-mono bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors flex items-center space-x-1"
                 >
                   {copiedPhone ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-emerald-600" />
-                      <span className="text-emerald-600">Copied</span>
+                      <span className="text-emerald-600 font-semibold">Copied</span>
                     </>
                   ) : (
                     <>
@@ -114,127 +108,114 @@ export const Contact: React.FC = () => {
 
               <a
                 href={`tel:${PERSONAL_INFO.phone}`}
-                className="text-base font-semibold font-mono text-stone-900 dark:text-stone-100 hover:text-brand-700 dark:hover:text-brand-400 transition-colors block"
+                className="text-base sm:text-lg font-bold font-mono text-stone-900 dark:text-stone-100 hover:text-brand-700 dark:hover:text-brand-400 transition-colors block pt-1"
               >
                 {PERSONAL_INFO.phone}
               </a>
-              <p className="text-xs text-stone-500">
-                Based in Chennai (IST / UTC +5:30). Open to relocation and remote positions.
-              </p>
             </div>
+            <p className="text-xs text-stone-500 dark:text-stone-400 pt-2 border-t border-stone-100 dark:border-stone-800">
+              Available Monday – Friday in India Standard Time (IST / UTC +5:30) for phone screenings.
+            </p>
+          </div>
 
-            {/* Professional Profiles */}
-            <div className="grid grid-cols-2 gap-3 pt-2">
+          {/* LinkedIn Profile Card */}
+          <div className="flex flex-col justify-between p-6 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs hover:border-stone-300 dark:hover:border-stone-700 transition-all space-y-4">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2 text-[#0A66C2]">
+                  <Linkedin className="w-4 h-4" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-semibold">
+                    LinkedIn
+                  </span>
+                </div>
+                <a
+                  href={PERSONAL_INFO.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1 rounded text-stone-400 hover:text-stone-700 dark:hover:text-stone-200"
+                >
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
+
               <a
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs hover:border-stone-300 dark:hover:border-stone-700 transition-all flex items-center justify-between"
+                className="text-base font-semibold text-stone-900 dark:text-stone-100 hover:text-brand-700 dark:hover:text-brand-400 transition-colors block pt-1"
               >
-                <div className="flex items-center space-x-2 text-stone-800 dark:text-stone-200">
-                  <Linkedin className="w-4 h-4 text-[#0A66C2]" />
-                  <span className="text-xs font-semibold font-sans">LinkedIn</span>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-stone-400" />
+                in/raghu-bharathi-983837323
               </a>
+            </div>
+            <p className="text-xs text-stone-500 dark:text-stone-400 pt-2 border-t border-stone-100 dark:border-stone-800">
+              Connect on LinkedIn for professional network recommendations, background, and career updates.
+            </p>
+          </div>
+
+          {/* GitHub Profile Card */}
+          <div className="flex flex-col justify-between p-6 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs hover:border-stone-300 dark:hover:border-stone-700 transition-all space-y-4">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2 text-stone-900 dark:text-stone-100">
+                  <Github className="w-4 h-4" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-semibold">
+                    GitHub Repositories
+                  </span>
+                </div>
+                <a
+                  href={PERSONAL_INFO.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1 rounded text-stone-400 hover:text-stone-700 dark:hover:text-stone-200"
+                >
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
 
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs hover:border-stone-300 dark:hover:border-stone-700 transition-all flex items-center justify-between"
+                className="text-base font-semibold font-mono text-stone-900 dark:text-stone-100 hover:text-brand-700 dark:hover:text-brand-400 transition-colors block pt-1"
               >
-                <div className="flex items-center space-x-2 text-stone-800 dark:text-stone-200">
-                  <Github className="w-4 h-4" />
-                  <span className="text-xs font-semibold font-sans">GitHub</span>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-stone-400" />
+                github.com/RaghuBharathi3
               </a>
             </div>
-
+            <p className="text-xs text-stone-500 dark:text-stone-400 pt-2 border-t border-stone-100 dark:border-stone-800">
+              Review public source repositories, multi-cloud schemas, commit histories, and automated test suites.
+            </p>
           </div>
 
-          {/* Right Column: Direct Message Composer */}
-          <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xs space-y-4">
-              <div className="space-y-1">
-                <h3 className="text-base font-bold text-stone-900 dark:text-stone-100 font-sans">
-                  Send Direct Inquiry
-                </h3>
-                <p className="text-xs text-stone-500 dark:text-stone-400">
-                  Composes a structured email directly to raghubharathi82@gmail.com with your preferred mail client.
-                </p>
-              </div>
+        </div>
 
-              <form onSubmit={handleSendMail} className="space-y-3.5 pt-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-mono text-stone-600 dark:text-stone-400 mb-1">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Sarah Jenkins"
-                      value={senderName}
-                      onChange={(e) => setSenderName(e.target.value)}
-                      className="w-full px-3 py-2 rounded-md bg-surface-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 text-xs text-stone-900 dark:text-stone-100 focus:outline-hidden focus:border-brand-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono text-stone-600 dark:text-stone-400 mb-1">
-                      Organization / Company
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Engineering Recruiting"
-                      value={senderOrg}
-                      onChange={(e) => setSenderOrg(e.target.value)}
-                      className="w-full px-3 py-2 rounded-md bg-surface-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 text-xs text-stone-900 dark:text-stone-100 focus:outline-hidden focus:border-brand-500"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono text-stone-600 dark:text-stone-400 mb-1">
-                    Subject Line
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-surface-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 text-xs text-stone-900 dark:text-stone-100 focus:outline-hidden focus:border-brand-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono text-stone-600 dark:text-stone-400 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="We're looking for a backend engineer or cloud security specialist..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md bg-surface-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 text-xs text-stone-900 dark:text-stone-100 focus:outline-hidden focus:border-brand-500 resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-md bg-stone-900 hover:bg-stone-800 dark:bg-stone-100 dark:hover:bg-stone-200 text-stone-50 dark:text-stone-900 text-xs font-medium tracking-tight shadow-xs transition-colors"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Send via Email Client</span>
-                </button>
-              </form>
-
+        {/* Availability & Location Callout Bar */}
+        <div className="mt-8 p-6 rounded-xl bg-surface-50 dark:bg-stone-950/60 border border-stone-200 dark:border-stone-800 text-left flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-1.5">
+            <div className="flex items-center space-x-2 text-xs font-mono font-semibold text-emerald-700 dark:text-emerald-400">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-500 animate-pulse"></span>
+              <span>Available for Full-Time Opportunities</span>
             </div>
+            <div className="flex items-center space-x-2 text-xs text-stone-600 dark:text-stone-300">
+              <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
+              <span>Based in Chennai, Tamil Nadu, India • Open to On-site, Hybrid, and Remote Roles</span>
+            </div>
+            <p className="text-xs text-stone-500 dark:text-stone-400">
+              Target Roles: Backend Engineer, Cloud Security Engineer, Software Engineer (Python / TypeScript / APIs)
+            </p>
           </div>
 
+          <div className="shrink-0">
+            <a
+              href={PERSONAL_INFO.resumePath}
+              download="RaghuBharathi_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-md bg-stone-900 text-stone-50 hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200 text-xs font-medium tracking-tight shadow-xs transition-colors"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Download Latest Resume</span>
+            </a>
+          </div>
         </div>
 
       </div>

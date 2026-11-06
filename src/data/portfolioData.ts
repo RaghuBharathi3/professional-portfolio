@@ -36,7 +36,7 @@ export interface SkillCategory {
   description: string;
   skills: {
     name: string;
-    level?: 'Advanced' | 'Proficient' | 'Familiar';
+    level: 'Proficient';
     context?: string;
   }[];
 }
@@ -47,8 +47,6 @@ export interface Education {
   field: string;
   period: string;
   location: string;
-  cgpa: string;
-  scoreScale: string;
   coursework: string[];
 }
 
@@ -64,8 +62,13 @@ export const PERSONAL_INFO = {
   github: "https://github.com/RaghuBharathi3",
   resumePath: `${import.meta.env.BASE_URL}RaghuBharathi.pdf`,
   profilePhoto: `${import.meta.env.BASE_URL}profile.jpg`,
-  bio: "Performance-driven Software Engineering undergraduate with enterprise internship experience at Zoho Corporation, specializing in resilient backend architectures, cloud security systems, and applied machine learning. Experienced in designing multi-cloud telemetry pipelines, threat classification models, and deterministic risk-scoring engines across AWS, Azure, GCP, and OCI mapped to NIST CSF 2.0 and ISO 27001 standards.",
-  philosophy: "I prioritize deterministic system behavior, zero-trust security postures, and clean architectural boundaries. Whether engineering cloud telemetry normalization pipelines or integrating enterprise CRM workflows, I focus on measurable reliability, clean test coverage, and recruiter-ready engineering rigor.",
+  bio: "Software Engineering undergraduate with enterprise internship experience at Zoho Corporation, specializing in resilient backend architectures, cloud security systems, and applied machine learning. Proven track record in designing multi-cloud telemetry pipelines, threat classification models, and deterministic risk-scoring engines across AWS, Azure, GCP, and OCI mapped to NIST CSF and ISO 27001 standards.",
+  aboutMe: {
+    identity: "I am a Software Engineering undergraduate at Rajalakshmi Engineering College with enterprise internship experience at Zoho Corporation. My work is focused on backend engineering, cloud platforms, and security-conscious software design.",
+    interests: "Technically, I am drawn to distributed data flows, deterministic risk scoring, and cloud telemetry normalization. I enjoy working at the boundary between software services and infrastructure—building APIs that are predictable, defensive, and observable under real-world conditions.",
+    skillsAndApproach: "My engineering foundation is built on Python, TypeScript, and SQL. Having shipped production business logic and RESTful integrations at Zoho Corporation, I prioritize clean schema validation (Pydantic), strict access controls (RBAC), and automated testing suites (Pytest) over speculative complexity.",
+    careerDirection: "I am actively seeking software engineering roles where I can contribute to production backend services, cloud security telemetry pipelines, and distributed architectures within a high-standard engineering team."
+  },
   status: "Available for Software Engineering & Security Roles",
   metrics: [
     { label: "Enterprise Internship", value: "Zoho Corp", detail: "CRM Automation & REST APIs" },
@@ -125,7 +128,7 @@ export const PROJECTS: Project[] = [
       "Automated compliance crosswalk to NIST CSF 2.0, CIS v8, and ISO 27001",
       "31 comprehensive automated unit tests in Pytest",
       "Granular Role-Based Access Control (RBAC) and secure secret management",
-      "Production-ready asynchronous endpoints with live telemetry endpoints"
+      "Production-ready asynchronous endpoints with live telemetry metrics"
     ],
     impact: "Unifies multi-cloud threat visibility into a deterministic risk metric, cutting triage overhead and providing instant compliance evidence.",
     githubUrl: "https://github.com/RaghuBharathi3/real-time-cloud-threat-analysis",
@@ -230,78 +233,75 @@ export const PROJECTS: Project[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: "Programming Languages",
-    description: "Core languages utilized for backend services, algorithms, and full-stack systems",
+    title: "Programming Languages & Core",
+    description: "Foundation languages for backend services, data logic, and systems engineering",
     skills: [
-      { name: "Python", level: "Advanced", context: "FastAPI, scikit-learn, Pytest, automated data pipelines" },
-      { name: "TypeScript", level: "Proficient", context: "Next.js, typed interfaces, frontend architecture" },
-      { name: "JavaScript", level: "Proficient", context: "Modern ES6+, React, asynchronous programming" },
-      { name: "SQL", level: "Proficient", context: "Complex queries, indexing, PostgreSQL, schema design" }
+      { name: "Python", level: "Proficient", context: "FastAPI, Pytest, automated data normalization pipelines" },
+      { name: "TypeScript", level: "Proficient", context: "Type-safe full-stack interfaces, React architectures" },
+      { name: "JavaScript", level: "Proficient", context: "Modern ES6+, asynchronous programming, event handling" },
+      { name: "SQL", level: "Proficient", context: "Relational queries, index optimization, constraints" },
+      { name: "Bash & Shell Scripting", level: "Proficient", context: "Linux automation, process triage, environment scripting" },
+      { name: "HTML5 & Modern CSS", level: "Proficient", context: "Semantic document structures, responsive layouts" }
     ]
   },
   {
     title: "Cloud Platforms & Infrastructure",
-    description: "Hands-on experience with multi-cloud architectures and telemetry extraction",
+    description: "Hands-on experience with multi-cloud environments and audit logging feeds",
     skills: [
-      { name: "Amazon Web Services (AWS)", level: "Proficient", context: "IAM, CloudTrail, GuardDuty, S3 security" },
-      { name: "Microsoft Azure", level: "Proficient", context: "Activity Logs, Sentinel, RBAC governance" },
-      { name: "Google Cloud Platform (GCP)", level: "Proficient", context: "Cloud Audit Logs, IAM policies, Cloud Storage" },
+      { name: "Amazon Web Services (AWS)", level: "Proficient", context: "IAM policies, CloudTrail, GuardDuty, S3 security" },
+      { name: "Microsoft Azure", level: "Proficient", context: "Activity Logs, Sentinel, RBAC governance models" },
+      { name: "Google Cloud Platform (GCP)", level: "Proficient", context: "Cloud Audit Logs, IAM policies, Storage buckets" },
       { name: "Oracle Cloud Infrastructure (OCI)", level: "Proficient", context: "Audit events, security lists, identity domains" },
-      { name: "Linux System Administration", level: "Proficient", context: "Bash scripting, systemd, process triage" }
+      { name: "Linux System Administration", level: "Proficient", context: "systemd, access permissions, process debugging" },
+      { name: "Cloud Telemetry Ingestion", level: "Proficient", context: "Parsing disparate provider JSON into canonical events" }
     ]
   },
   {
-    title: "Backend & Systems Architecture",
-    description: "Building resilient REST APIs, microservices, and asynchronous pipelines",
+    title: "Backend & Systems Development",
+    description: "Developing resilient RESTful services, integrations, and business workflows",
     skills: [
-      { name: "FastAPI", level: "Advanced", context: "Asynchronous endpoints, dependency injection, Pydantic schemas" },
-      { name: "RESTful API Design", level: "Advanced", context: "Idempotency, resource modeling, error contracts" },
-      { name: "Zoho CRM & Books APIs", level: "Proficient", context: "Enterprise automation, bidirectional sync, Deluge" },
-      { name: "Next.js App Router", level: "Proficient", context: "Full-stack server/client components, API routes" },
-      { name: "Node.js", level: "Proficient", context: "Microservices, backend scripting, npm ecosystems" },
-      { name: "Role-Based Access Control (RBAC)", level: "Proficient", context: "Principle of least privilege, token validation" }
+      { name: "FastAPI", level: "Proficient", context: "Asynchronous endpoints, dependency injection, Pydantic" },
+      { name: "RESTful API Architecture", level: "Proficient", context: "Resource modeling, idempotency, structured error handling" },
+      { name: "API Integration & Webhooks", level: "Proficient", context: "Bidirectional sync, signature verification, Razorpay" },
+      { name: "Next.js App Router", level: "Proficient", context: "Server and client components, typed API route handlers" },
+      { name: "Node.js", level: "Proficient", context: "Backend scripting, microservices, npm ecosystem" },
+      { name: "Asynchronous Request Pipelines", level: "Proficient", context: "Non-blocking I/O, event queues, throughput tuning" }
     ]
   },
   {
-    title: "Cloud Security & Compliance",
-    description: "Applied threat analysis, risk scoring, and industry standard mapping",
+    title: "Cloud Security & Governance",
+    description: "Threat identification, deterministic risk quantification, and audit mappings",
     skills: [
+      { name: "Cloud Security Posture", level: "Proficient", context: "Detecting policy drift and public asset exposures" },
+      { name: "Threat Analysis & Detection", level: "Proficient", context: "Privilege escalation and unauthorized ingress vectors" },
+      { name: "Deterministic Risk Scoring", level: "Proficient", context: "Reproducible 0–100 composite risk scoring engines" },
       { name: "NIST CSF 2.0 Mapping", level: "Proficient", context: "PR.AC (Access Control), DE.CM (Continuous Monitoring)" },
-      { name: "CIS Controls v8", level: "Proficient", context: "Data Protection (3.3), Account Management (5.4)" },
-      { name: "ISO/IEC 27001:2022", level: "Proficient", context: "User access rights (A.9.2), Logging & monitoring (A.12.4)" },
-      { name: "Cloud Threat Analysis", level: "Proficient", context: "Anomaly detection, privilege escalation, lateral movement" },
-      { name: "Deterministic Risk Scoring", level: "Advanced", context: "Composite 0–100 risk quantification algorithms" }
+      { name: "CIS Controls v8", level: "Proficient", context: "Control 3.3 (Data Protection), Control 5.4 (Admin Rights)" },
+      { name: "ISO/IEC 27001:2022", level: "Proficient", context: "A.9.2 (User Access Rights), A.12.4 (Audit Logging)" }
     ]
   },
   {
-    title: "Machine Learning & Analytics",
-    description: "Applied statistical modeling and classification for security telemetry",
+    title: "Databases & Data Management",
+    description: "Relational modeling, secure access policies, and query reliability",
     skills: [
-      { name: "Random Forest Classifiers", level: "Proficient", context: "Ensemble learning for anomaly prioritization" },
-      { name: "Anomaly Detection", level: "Proficient", context: "Statistical outlier triage, baseline deviation" },
-      { name: "SHAP Interpretability", level: "Familiar", context: "Feature importance attribution in threat models" },
-      { name: "Telemetry Normalization", level: "Advanced", context: "Extracting canonical vectors from raw vendor JSON" }
+      { name: "PostgreSQL", level: "Proficient", context: "Relational schema design, foreign keys, table indexing" },
+      { name: "Supabase", level: "Proficient", context: "Hosted PostgreSQL, Row-Level Security (RLS), Auth tokens" },
+      { name: "SQLite", level: "Proficient", context: "Embedded transactional persistence for local engines" },
+      { name: "MySQL", level: "Proficient", context: "Structured relational tables, transactional queries" },
+      { name: "Row-Level Security (RLS)", level: "Proficient", context: "Multi-tenant data isolation and authorization policies" },
+      { name: "Relational Schema Design", level: "Proficient", context: "Data normalization, referential integrity, constraints" }
     ]
   },
   {
-    title: "Databases & Storage",
-    description: "Relational modeling, secure access policies, and query optimization",
+    title: "Developer Tools & Engineering Practices",
+    description: "Maintaining deterministic reliability, test coverage, and clean SDLC",
     skills: [
-      { name: "PostgreSQL", level: "Proficient", context: "Relational schema design, constraints, indexing" },
-      { name: "Supabase", level: "Proficient", context: "PostgreSQL hosting, Row-Level Security (RLS), Auth" },
-      { name: "SQLite", level: "Proficient", context: "Lightweight transactional persistence for local engines" },
-      { name: "MySQL", level: "Proficient", context: "Structured data storage and relational queries" }
-    ]
-  },
-  {
-    title: "Testing & Engineering Practices",
-    description: "Maintaining deterministic reliability, rigorous test coverage, and clean SDLC",
-    skills: [
-      { name: "Pytest", level: "Advanced", context: "31 automated unit tests with fixtures and edge case suites" },
-      { name: "Git & GitHub", level: "Proficient", context: "Feature branching, pull requests, version control" },
-      { name: "Postman", level: "Proficient", context: "API contract validation, endpoint testing" },
-      { name: "Agile / Scrum", level: "Proficient", context: "Enterprise sprint cycles during Zoho internship" },
-      { name: "Defensive Coding", level: "Advanced", context: "Pydantic validation, boundary checks, zero-trust" }
+      { name: "Pytest & Automated Testing", level: "Proficient", context: "31 automated unit tests with fixtures and edge cases" },
+      { name: "Git & GitHub", level: "Proficient", context: "Branch workflows, code reviews, version control" },
+      { name: "Postman & API Contracts", level: "Proficient", context: "Endpoint testing, JSON schema validation, collections" },
+      { name: "Agile & Scrum Methodologies", level: "Proficient", context: "Enterprise sprint cycles during Zoho CRM internship" },
+      { name: "Role-Based Access Control (RBAC)", level: "Proficient", context: "Principle of least privilege, token validation" },
+      { name: "VS Code & Streamlit", level: "Proficient", context: "Development tooling, rapid data prototyping interfaces" }
     ]
   }
 ];
@@ -312,8 +312,6 @@ export const EDUCATION: Education = {
   field: "Information Technology",
   period: "2023 – 2027",
   location: "Chennai, Tamil Nadu, India",
-  cgpa: "7.33",
-  scoreScale: "10.0",
   coursework: [
     "Data Structures & Algorithms",
     "Database Management Systems (DBMS)",
