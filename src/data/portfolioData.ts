@@ -50,6 +50,16 @@ export interface Education {
   coursework: string[];
 }
 
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  credentialId: string;
+  url?: string;
+  description: string;
+}
+
 export const PERSONAL_INFO = {
   name: "Raghu Bharathi K P",
   shortName: "Raghu Bharathi",
@@ -90,15 +100,15 @@ export const EXPERIENCES: Experience[] = [
     description: "Collaborated within an enterprise engineering group to architect, debug, and deliver business-critical CRM automation pipelines and cross-platform RESTful synchronizations.",
     responsibilities: [
       "Collaborated with a seven-member engineering team to design, debug, and deliver enterprise-grade CRM automation modules following Agile methodologies.",
-      "Developed bespoke scripts and business logic across Zoho CRM and Zoho Books to streamline cross-functional operational workflows.",
+      "Developed bespoke Deluge scripts and workflow rules across Zoho CRM and Zoho Books to automate record routing and field validation.",
       "Integrated Zoho CRM REST APIs for secure, bidirectional data synchronization between distributed internal platforms.",
-      "Root-caused and resolved high-priority workflow edge cases, standardizing debugging documentation and improving pipeline reliability."
+      "Diagnosed and resolved edge-case workflow bugs, authoring standardized debugging playbooks to maintain pipeline reliability."
     ],
     technologies: ["Zoho CRM REST APIs", "Deluge Scripting", "Zoho Books", "API Integration", "JSON/REST", "Agile / Scrum", "Data Synchronization"],
     highlights: [
-      "Eliminated manual sync discrepancies across cross-functional finance and CRM platforms",
-      "Authored standardized debugging playbooks adopted by internal teammates",
-      "Delivered production-ready automation scripts compliant with Zoho security standards"
+      "Automated lead assignment and validation rules, reducing manual dispatch errors",
+      "Eliminated sync discrepancies between CRM records and cross-functional platforms",
+      "Delivered production-ready scripts adhering strictly to enterprise security guidelines"
     ]
   }
 ];
@@ -322,7 +332,16 @@ export const EDUCATION: Education = {
   ]
 };
 
-export const CERTIFICATIONS = [
+export const CERTIFICATIONS: Certification[] = [
+  {
+    id: "ibm-prompt-eng",
+    title: "Prompt Engineering for Everyone",
+    issuer: "IBM Developer Skills Network & Cognitive Class",
+    date: "April 2026",
+    credentialId: "c476dd890fc7447d8da1a1c355994123",
+    url: "https://courses.cognitiveclass.ai/certificates/c476dd890fc7447d8da1a1c355994123",
+    description: "Verified foundational competency in generative AI prompting methodologies, chain-of-thought steering, persona formulation, and LLM evaluation on IBM watsonx."
+  },
   {
     id: "zoho-cert",
     title: "Certificate of Enterprise Internship Completion",
@@ -337,6 +356,7 @@ export const CERTIFICATIONS = [
     issuer: "Engineering Research & Implementation",
     date: "2024 – 2025",
     credentialId: "NIST CSF 2.0 / ISO 27001 Mapping",
+    url: "https://github.com/RaghuBharathi3/real-time-cloud-threat-analysis",
     description: "Designed, implemented, and verified cross-cloud security event normalization and deterministic risk scoring engine backed by 31 Pytest test suites."
   }
 ];

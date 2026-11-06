@@ -1,6 +1,6 @@
 import React from 'react';
 import { EDUCATION, CERTIFICATIONS } from '../data/portfolioData';
-import { GraduationCap, Award, Calendar, CheckCircle, BookOpen } from 'lucide-react';
+import { GraduationCap, Award, Calendar, CheckCircle, BookOpen, ExternalLink } from 'lucide-react';
 
 export const Education: React.FC = () => {
   return (
@@ -106,8 +106,19 @@ export const Education: React.FC = () => {
                   {cert.description}
                 </p>
 
-                <div className="pt-1 text-[11px] font-mono text-stone-500">
-                  ID: <span className="text-stone-700 dark:text-stone-300">{cert.credentialId}</span>
+                <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-stone-500">
+                  <span>ID: <span className="text-stone-700 dark:text-stone-300">{cert.credentialId}</span></span>
+                  {cert.url && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-1 text-brand-700 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 font-semibold transition-colors"
+                    >
+                      <span>Verify Credential</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
