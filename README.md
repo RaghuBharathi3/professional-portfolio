@@ -11,14 +11,14 @@ An enterprise-grade, recruiter-friendly personal portfolio website engineered fo
 
 ---
 
-## 🌐 Live Website
+##  Live Website
 
 - **Public URL**: [https://raghubharathi3.github.io/professional-portfolio/](https://raghubharathi3.github.io/professional-portfolio/)
 - **Target Role Focus**: Backend Software Engineering • Cloud Security • Distributed Systems
 
 ---
 
-## 🏛️ Architectural Highlights & Features
+##  Architectural Highlights & Features
 
 1. **Editorial Digital Product Design**:
    - Refined, minimalist aesthetic tailored for technical recruiters and hiring managers.
@@ -45,7 +45,7 @@ An enterprise-grade, recruiter-friendly personal portfolio website engineered fo
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 | Layer | Technologies |
 |---|---|
@@ -57,7 +57,7 @@ An enterprise-grade, recruiter-friendly personal portfolio website engineered fo
 
 ---
 
-## 💻 Local Development & Build
+##  Local Development & Build
 
 ### Prerequisites
 - Node.js 18+ (tested on Node v20 & v23)
@@ -87,7 +87,7 @@ npm run preview
 
 ---
 
-## 📱 Responsiveness & Browser Testing
+##  Responsiveness & Browser Testing
 
 Automated end-to-end tests via Playwright validated:
 - **Desktop (1920×1080 & 1440×900)**: Editorial grid alignment, photo framing, interactive simulator, deep-dive modal.
@@ -97,7 +97,7 @@ Automated end-to-end tests via Playwright validated:
 
 ---
 
-## 📬 Contact & Credentials
+##  Contact & Credentials
 
 - **Engineer**: Raghu Bharathi K P
 - **Email**: [raghubharathi82@gmail.com](mailto:raghubharathi82@gmail.com)
@@ -107,6 +107,6 @@ Automated end-to-end tests via Playwright validated:
 
 ---
 
-## 📄 License
+##  License
 This project is open-source and available under the [MIT License](LICENSE).
 
